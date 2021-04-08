@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>妙用 before 伪类</title>
+    <style>
+      #submitBtn {
+        position: relative;
+        cursor: pointer;
+        height: 32px;
+        width: 64px;
+        position: relative;
+        border: 1px solid #d9d9d9;
+        background: #339999;
+        color: #fff;
+        padding: 0;
+        margin: 20px auto;
+        line-height: 32px;
+        vertical-align: middle;
+        text-align: center;
+      }
+      #submitBtn:focus {
+        outline: unset;
+      }
+      #submitBtn:active {
+        box-shadow: 2px 2px 5px 2px #d6d6d6;
+        transform: scale(1.01);
+      }
+      .loading {
+        width: 94px !important;
+      }
+      .loading::before {
+        display: block;
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        left: -1px;
+        z-index: 1;
+        background: rgb(255, 255, 255);
+        border-radius: inherit;
+        opacity: 0.35;
+        transition: opacity 0.2s;
+        content: "";
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="submitBtn">提交</button>
+    <script type="module">
+      import "./app.js";
+    </script>
+  </body>
+</html>
